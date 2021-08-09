@@ -36,6 +36,12 @@ const options = [
     },
 ]
 
+const showAccordion = () => {
+    if (window.location.pathname === '/') {
+        return <Accordion items={items} />
+    }
+}
+
 // instead of naming the function then export default name of the function -> merge it in one line of code
 export default () => {
 
@@ -45,7 +51,7 @@ export default () => {
     return (
         <div>
             <br></br>   {/* just to emphasize why fragment is needed instead of normal div to remove the extra upper border */}
-            {/* <Accordion items={items}/> */}
+            {showAccordion()}
             
             {/* <Search /> */}
             
@@ -59,7 +65,7 @@ export default () => {
             : null
             } */}
             
-            <div><Translate /></div>
+            {/* <div><Translate /></div> */}
         </div>
     );
 };
