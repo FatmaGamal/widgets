@@ -5,6 +5,7 @@ import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
 import Route from './components/Route';
+import Header from './components/Header';
 
 const items = [
     {
@@ -52,6 +53,8 @@ export default () => {
     return (
         <div>
             <br></br>   {/* just to emphasize why fragment is needed instead of normal div to remove the extra upper border */}
+            <Header />
+            
             {showAccordion()}
             {/* <Accordion items={items} /> */}
             
