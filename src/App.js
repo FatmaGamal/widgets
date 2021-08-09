@@ -4,6 +4,7 @@ import Accordion from './Accordion';
 import Search from './Search';
 import Dropdown from './Dropdown';
 import Translate from './Translate';
+import Route from './Route';
 
 const items = [
     {
@@ -52,7 +53,9 @@ export default () => {
         <div>
             <br></br>   {/* just to emphasize why fragment is needed instead of normal div to remove the extra upper border */}
             {showAccordion()}
+            {/* <Accordion items={items} /> */}
             
+            <Route path="/list"><Search /></Route>
             {/* <Search /> */}
             
             {/* <button onClick={() => {setShowDropdown(!showDropdown)}}>Toggle Dropdown</button>
