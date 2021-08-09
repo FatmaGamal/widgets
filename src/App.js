@@ -54,13 +54,24 @@ export default () => {
         <div>
             <br></br>   {/* just to emphasize why fragment is needed instead of normal div to remove the extra upper border */}
             <Header />
-            
-            {showAccordion()}
+
+            <Route path="/"><Accordion items={items} /></Route>
+            {/* {showAccordion()} */}
             {/* <Accordion items={items} /> */}
             
             <Route path="/list"><Search /></Route>
             {/* <Search /> */}
-            
+            <Route path="/dropdown">
+            <button onClick={() => {setShowDropdown(!showDropdown)}}>Toggle Dropdown</button>
+            {showDropdown ?
+            // multipe elements must be wrapped inside a single element as a div or a fragment
+            <React.Fragment>
+                <Dropdown selected={selected} onSelectedChange={setSelected} options={options} /> 
+                <div>WOOOOOW!! I changed the color to <span style={{color:selected.value}}>{selected.label}!</span></div>
+            </React.Fragment>
+            : null
+            }
+            </Route>
             {/* <button onClick={() => {setShowDropdown(!showDropdown)}}>Toggle Dropdown</button>
             {showDropdown ?
             // multipe elements must be wrapped inside a single element as a div or a fragment
@@ -71,6 +82,8 @@ export default () => {
             : null
             } */}
             
+            <Route path="/translate"><Translate /></Route>
+
             {/* <div><Translate /></div> */}
         </div>
     );
